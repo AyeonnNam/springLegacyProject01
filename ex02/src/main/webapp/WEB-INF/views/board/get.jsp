@@ -249,12 +249,27 @@
 						});	
 						
 						});
-			
+		//댓글 조회 클릭 이벤트 처리 	
 		$(".chat").on("click", "li", function(e){
 			
 			var rno = $(this).data("rno");
 			
-			console.log(rno);
+			//console.log(rno);
+			
+			replyService.get(rno, function(reply){
+				
+				modalInputReply.val(reply.reply);
+				modalInputReplyer.val(reply.replyer);
+				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly","readonly");
+				modal.data("rno",reply.rno);
+				
+				modal.find("button[id! ='modalCloseBtn']").hide();
+				modalModBtn.show();	//수정버튼 
+				modalRemoveBtn.show();	//제거버튼 
+				
+				$(".modal").modal("show");
+				
+			});
 			
 		});				
 						
