@@ -46,10 +46,15 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
                 AS R WHERE RN > (#{cri.pageNum}-1) * #{cri.amount} 
                 LIMIT #{cri.amount};
 	]]>
+	</select>
 
-
-
-
+	<!-- 댓글의 숫자 파악  -->
+	<select id= "getCountByBno" resultType = "int">
+		<![CDATA[		
+			SELECT COUNT(rno) FROM TBL_REPLY WHERE bno = #{bno};
+		]]>
+	
+	
 	</select>
 
 
