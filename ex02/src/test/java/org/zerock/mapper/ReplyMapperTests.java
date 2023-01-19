@@ -3,7 +3,7 @@ package org.zerock.mapper;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import javax.sound.midi.MidiDevice.Info;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -89,6 +89,17 @@ public class ReplyMapperTests {
 		replies.forEach(reply ->  log.info("Reply............." +reply));
 		 
 	
+	}
+	
+	@Test
+	public void testList2() {
+		Criteria cri = new Criteria(2,10);
+		
+		//816853L
+		
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, 816853L);
+		
+		replies.forEach(reply -> log.info(reply));
 	}
 	
 	

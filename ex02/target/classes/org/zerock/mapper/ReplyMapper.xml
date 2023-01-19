@@ -25,17 +25,30 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 		update tbl_reply
 		set reply = #{reply},
-		updateDate = current_timestamp
+		updateDate =
+		current_timestamp
 		where rno = #{rno}
 	</update>
 
+	<!-- <select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO"> 
+		select rno, bno, reply, replyer, replyDate, updateDate from tbl_reply where 
+		bno = #{bno} order by rno asc </select> -->
+
 	<select id="getListWithPaging"
 		resultType="org.zerock.domain.ReplyVO">
-		select rno, bno, reply, replyer, replyDate, updateDate
-		from
-		tbl_reply
-		where bno = #{bno}
-		order by rno asc
+	
+	<![CDATA[
+		
+	 SELECT * FROM ( SELECT @RN := @RN + 1 AS RN, 
+	 TBL_REPLY.*  FROM TBL_REPLY AS TBL_REPLY USE INDEX (idx_reply)
+	  CROSS JOIN (SELECT @RN := 0) AS R
+                WHERE TBL_REPLY.BNO = #{bno} ) 
+                AS R WHERE RN > (#{cri.pageNum}-1) * #{cri.amount} 
+                LIMIT #{cri.amount};
+	]]>
+
+
+
 
 	</select>
 
