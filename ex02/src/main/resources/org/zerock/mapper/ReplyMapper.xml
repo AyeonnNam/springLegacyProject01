@@ -54,7 +54,6 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT COUNT(rno) FROM TBL_REPLY WHERE bno = #{bno};
 		]]>
 	
-	
 	</select>
 
 
