@@ -129,11 +129,12 @@
 			<div class="modal-footer">
 				<button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
 				<button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
-				<button id = 'modalRegisterBtn' type="button" class="btn btn-default" data-dismiss="modal">Register</button>
-				
+				<button id='modalRegisterBtn' type="button" class="btn btn-default"
+					data-dismiss="modal">Register</button>
+
 				<button id='modalCloseBtn' type="button" class="btn btn-default"
 					data-dismiss="modal">Close</button>
-				
+
 
 			</div>
 		</div>
@@ -249,6 +250,7 @@
 						});	
 						
 						});
+						
 		//댓글 조회 클릭 이벤트 처리 	
 		$(".chat").on("click", "li", function(e){
 			
@@ -263,7 +265,7 @@
 				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly","readonly");
 				modal.data("rno",reply.rno);
 				
-				modal.find("button[id! ='modalCloseBtn']").hide();
+				modal.find("button[id !='modalCloseBtn']").hide();
 				modalModBtn.show();	//수정버튼 
 				modalRemoveBtn.show();	//제거버튼 
 				
@@ -271,7 +273,22 @@
 				
 			});
 			
-		});				
+		});		
+		
+		//댓글 수정 
+		modalModBtn.on("click", function(e){
+			
+			var reply =  {rno: modal.data("rno"), reply: modalInputReply.val()};
+			
+			replyService.update(reply, function(result){
+				
+				alert(result);
+				modal.modal("hide");
+				showList(1);
+				
+			});
+			
+		});
 						
 						
 
