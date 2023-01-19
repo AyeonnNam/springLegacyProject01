@@ -23,6 +23,9 @@ public interface ReplyMapper {
 			@Param("cri") Criteria cri,
 			@Param("bno") Long bno);
 	
+	//댓글 숫자 파악 메소드 
+	public int getCountByBno(Long bno);
+	
 	
 	
 }
