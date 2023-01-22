@@ -85,10 +85,10 @@
 				<li class="left clear fix" data-rno='42'>
 					<div>
 						<div class="header">
-							<strong class="primary font">user00</strong> <small
-								class="pull-right text-muted">2022-01-15 02:54</small>
+							<strong class="primary font"></strong> <small
+								class="pull-right text-muted"></small>
 						</div>
-						<p>Good Job!</p>
+						<p>아직 댓글이 없습니다.</p>
 					</div>
 				</li>
 				<!--  end reply --> </ul>
@@ -202,9 +202,8 @@
 												for (var i = 0, len = list.length || 0; i < len; i++) {
 
 													str += "<li class ='left clearfix' data-rno='"+list[i].rno+"'>";
-													str += "  <div><div class='header'><strong class='primary-font'>"
-															+ list[i].replyer
-															+ "</strong>";
+													str += "  <div><div class='header'><strong class='primary-font'>["
+														+list[i].rno+"] "+list[i].replyer+"</strong>";
 													str += "     <small class='pull-right text-muted'>"
 															+ replyService
 																	.displayTime(list[i].replyDate)
@@ -266,6 +265,7 @@
 						alert(result);
 						
 						modal.find("input").val("");
+						
 						modal.modal("hide");
 						
 						//showList(1);
@@ -285,19 +285,16 @@
 			
 			replyService.get(rno, function(reply){
 				
-				modalInputReply.val(reply.reply);
-				modalInputReplyer.val(reply.replyer);
-				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly","readonly");
-				modal.data("rno",reply.rno);
-				
-				modal.find("button[id !='modalCloseBtn']").hide();
-				modalModBtn.show();	//수정버튼 
-				modalRemoveBtn.show();	//제거버튼 
-				
-				$(".modal").modal("show");
-				
-			});
-			
+				modalInputReply.val(reply.reply);				
+				modalInputReplyer.val(reply.replyer);				
+				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly","readonly");				
+				modal.data("rno",reply.rno);				
+				modal.find("button[id !='modalCloseBtn']").hide();				
+				modalModBtn.show();	//수정버튼 				
+				modalRemoveBtn.show();	//제거버튼 				
+				$(".modal").modal("show");				
+	
+			});			
 		});		
 		
 		//댓글 수정 
@@ -309,7 +306,7 @@
 				
 				alert(result);
 				modal.modal("hide");
-				showList(1);
+				showList(pageNum);
 				
 			});
 			
@@ -324,7 +321,7 @@
 				
 				alert(result);
 				modal.modal("hide");
-				showList(1);
+				showList(pageNum);
 				
 			});
 			
@@ -333,14 +330,18 @@
 		
 		
 		var pageNum = 1;
+		
 		var replyPageFooter = $(".panel-footer");
+		
 		
 		function showReplyPage(replyCnt){
 			
 			var endNum  = Math.ceil(pageNum / 10.0) * 10;
+			
 			var startNum = endNum - 9;
 			
 			var prev = startNum != 1;
+			
 			var next = false;
 			
 			if(endNum * 10 >= replyCnt){
@@ -380,9 +381,10 @@
 		}
 		
 		
-		replyPageFooter.on("click","li a", function(e){
-			
+		replyPageFooter.on("click", "li a", function(e){
+						
 			e.preventDefault();
+			
 			console.log("page click");
 			
 			var targetPageNum  = $(this).attr("href");
@@ -400,7 +402,7 @@
 						
 						
 
-					});
+ });
 </script>
 
 
