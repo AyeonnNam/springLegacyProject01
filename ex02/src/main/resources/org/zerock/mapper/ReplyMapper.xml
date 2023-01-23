@@ -5,8 +5,6 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.zerock.mapper.ReplyMapper">
 
 	<insert id="insert">
-
-
 		insert into tbl_reply (rno, bno, reply, replyer)
 		values ((select nextval('seq_reply') from dual ), #{bno}, #{reply},
 		#{replyer})
@@ -46,7 +44,7 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
                 AS R WHERE RN > (#{cri.pageNum}-1) * #{cri.amount} 
                 LIMIT #{cri.amount};
 	]]>
-	</select>
+	</select> 
 
 	<!-- 댓글의 숫자 파악  -->
 	<select id= "getCountByBno" resultType = "int">

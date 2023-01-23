@@ -14,6 +14,7 @@ public class ReplyVO {
 	private String reply;
 	private String replyer;
 	
+	//자동으로 들어가게 됨
 	private Date replyDate;
 	private Date updateDate;
 }

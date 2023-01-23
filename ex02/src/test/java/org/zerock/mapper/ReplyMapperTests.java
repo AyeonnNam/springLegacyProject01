@@ -44,22 +44,23 @@ public class ReplyMapperTests {
 	}
 	
 	
-//	@Test
-//	public void testCreate() {
-//		
-//		IntStream.rangeClosed(1, 10).forEach(i -> {
-//			
-//		ReplyVO vo = new ReplyVO();
-//			vo.setBno(bnoArr[i%5]);
-//			vo.setReply("댓글테스트" + i);
-//			vo.setReplyer("악플러" + i);
-//		
-//			mapper.insert(vo);
-//		
-//		});
-//		
-//	}
-//	
+	@Test
+	public void testCreate() {
+		
+		IntStream.rangeClosed(1, 10).forEach(i -> {
+			
+		ReplyVO vo = new ReplyVO();
+			vo.setBno(bnoArr[i%5]); //1,2,3,4,0,1,2,3,4,0 나머지 
+			vo.setReply("댓글테스트" + i);
+			vo.setReplyer("악플러" + i);
+		
+			log.info(mapper.insert(vo));
+			
+		
+		});
+		
+	}
+	
 	
 	@Test
 	public void testDelete() {
@@ -82,6 +83,7 @@ public class ReplyMapperTests {
 	
 	@Test
 	public void testList() {
+		
 		Criteria cri = new Criteria();
 		
 		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);

@@ -44,11 +44,11 @@ public class ReplyServiceImpl implements ReplyService {
 		return mapper.delete(rno);
 	}
 
-	@Override
-	public List<ReplyVO> getList(Criteria cri, Long bno) {
-		log.info("getList.........." + bno);
-		return mapper.getListWithPaging(cri, bno);
-	}
+//	@Override
+//	public List<ReplyVO> getList(Criteria cri, Long bno) {
+//		log.info("getList.........." + bno);
+//		return mapper.getListWithPaging(cri, bno);
+//	}
 
 	@Override
 	public ReplyPageDTO getListPage(Criteria cri, Long bno) {

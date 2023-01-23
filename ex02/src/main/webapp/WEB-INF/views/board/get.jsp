@@ -324,8 +324,7 @@
 				showList(pageNum);
 				
 			});
-			
-			
+						
 		});
 		
 		
