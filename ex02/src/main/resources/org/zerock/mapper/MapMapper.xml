@@ -31,15 +31,20 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delete">
 		delete from tbl_map where mno = #{mno}
 	</delete>
-	
+
 	<update id="update">
-	update tbl_map 
-	set name = #{name},
-	type = #{type},
-	dueDate = #{dueDate},
-	updateDate = current_timestamp
-	where mno = #{mno}
+		update tbl_map
+		set name = #{name},
+		type = #{type},
+		dueDate = #{dueDate},
+		updateDate = current_timestamp
+		where mno = #{mno}
 	</update>
+
+	<select id="getList" resultType="org.zerock.domain.MapVO">
+		<![CDATA[select * from tbl_map where mno>0]]>
+
+	</select>
 
 
 </mapper>
