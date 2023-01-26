@@ -1,6 +1,5 @@
 package org.zerock.mapper;
 
-import static org.hamcrest.CoreMatchers.sameInstance;
 
 import java.util.List;
 

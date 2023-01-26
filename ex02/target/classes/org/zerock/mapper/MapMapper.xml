@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.MapMapper">
+
+	<insert id="insert">
+		insert into tbl_map (mno, name, type, dueDate, lat,
+		lon)
+		values( nextval('seq_map'), #{name},
+		#{type},#{dueDate},#{lat},#{lon} )
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="mno" order="BEFORE"
+			resultType="long">
+			select nextval('seq_map') from dual
+		</selectKey>
+		insert into tbl_map (mno, name, type, dueDate, lat,
+		lon)
+		values( #{mno},
+		#{name},
+		#{type},#{dueDate},#{lat},#{lon} )
+	</insert>
+
+	<select id="read" resultType="org.zerock.domain.MapVO">
+		select * from tbl_map where mno =
+		#{mno}
+	</select>
+
+	<delete id="delete">
+		delete from tbl_map where mno = #{mno}
+	</delete>
+	
+	<update id="update">
+	update tbl_map 
+	set name = #{name},
+	type = #{type},
+	dueDate = #{dueDate},
+	updateDate = current_timestamp
+	where mno = #{mno}
+	</update>
+
+
+</mapper>

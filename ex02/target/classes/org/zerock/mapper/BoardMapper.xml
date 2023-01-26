@@ -63,8 +63,6 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from tbl_board where
 
 		<include refid="criteria"></include>
-
-
 		bno > 0
 	</select>
 
