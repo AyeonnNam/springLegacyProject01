@@ -36,7 +36,8 @@ public class ReplyController {
 
 	@Setter(onMethod_ = @Autowired)
 	private ReplyService service;
-
+	
+	//댓글 작성 
 	@PostMapping(value = "/new", consumes = "application/json", produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> create(@RequestBody ReplyVO vo) {
 
