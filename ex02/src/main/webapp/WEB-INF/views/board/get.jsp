@@ -65,7 +65,7 @@
 	<!-- end panel -->
 </div>
 <!-- /.row -->
-
+<!--  댓글창 ui -->
 <div class='row'>
 	<div class="col-lg-12">
 		<!-- /.panel -->
