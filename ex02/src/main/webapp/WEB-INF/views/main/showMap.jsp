@@ -25,8 +25,7 @@
 		<!-- /.panel -->
 	</div>
 	<!-- /.col-lg-4 -->
-	<!-- /.col-lg-4 -->
-
+	
 </c:forEach>
 
 

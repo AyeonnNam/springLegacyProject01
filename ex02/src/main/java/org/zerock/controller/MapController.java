@@ -32,27 +32,28 @@ public class MapController {
 
 	private MapService service;
 	
-	//메인 지도에 전체 데이터 뿌려주기  
-	@GetMapping("/mapList") 
-	public void mapList(Model model) { 
-		log.info("mapList");
-		List<MapVO> list = service.getList();
-		String jsonList = new Gson().toJson(list);
-		log.info("..............................jsonList." +jsonList);
-				
-
-		model.addAttribute("mapList", jsonList);
-		
-		
-		
-	}
+//	//메인 지도에 전체 데이터 뿌려주기  
+//	@GetMapping("/mapList") 
+//	public void mapList(Criteria cri, Model model) { 
+//		log.info("mapList");
+//		List<MapVO> list = service.getList(cri);
+//		String jsonList = new Gson().toJson(list);
+//		log.info("..............................jsonList." +jsonList);
+//				
+//
+//		model.addAttribute("mapList", jsonList);
+//		
+//		
+//		
+//	}
 	
 	
 	
 	@GetMapping("/showMap")
-	public void showMap(Model model) {
+	public void showMap(Model model, Criteria cri) {
 		
-		model.addAttribute("showMap",service.getList() );
+		model.addAttribute("showMap",service.getList(cri) );
+		
 	}
 
 	

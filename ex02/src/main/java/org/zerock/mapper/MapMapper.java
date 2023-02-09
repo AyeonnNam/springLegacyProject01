@@ -2,6 +2,7 @@ package org.zerock.mapper;
 
 import java.util.List;
 
+import org.zerock.domain.Criteria;
 import org.zerock.domain.MapVO;
 
 public interface MapMapper {
@@ -17,5 +18,7 @@ public interface MapMapper {
 	public int update(MapVO map);
 	
 	public List<MapVO> getList();
+	
+	public List<MapVO> getListWithPaging(Criteria cri);
 	
 }

@@ -45,6 +45,28 @@ PUBLIC "_//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[select * from tbl_map where mno>0]]>
 
 	</select>
+	
+	<select id="getListWithPaging" resultType = "org.zerock.domain.MapVO">
+	<![CDATA[
+	
+	SELECT *
+		
+			 FROM 
+			 
+			(
+				
+				SELECT @ROWNUM := @ROWNUM + 1 AS RN, mno, name, type, dueDate, lon, lat,regDate, updateDate
+			
+			FROM
+				
+				 TBL_MAP, (SELECT @ROWNUM := 0) AS ROWCOLUMN ORDER BY MNO DESC) AS ROWNUM_TABLE 
+			
+			WHERE RN > (#{pageNum} -1) * #{amount} AND RN <= #{pageNum} * #{amount};
+	
+	]]>
+	
+	</select>	
+	
 
 
 </mapper>

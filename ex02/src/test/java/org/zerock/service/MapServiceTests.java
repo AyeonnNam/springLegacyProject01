@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.MapVO;
 import org.zerock.domain.Type;
 
@@ -45,12 +46,13 @@ public class MapServiceTests {
 //			log.info("register........." + map);
 //		}
 		
-//		@Test
-//		public void testGetList() {
-//			
-//			service.getList().forEach(map -> log.info(map));
-//			
-//		}
+		@Test
+		public void testGetList() {
+			
+			Criteria cri = new Criteria();
+			service.getList(cri).forEach(map -> log.info(map));
+			
+		}
 		
 //		@Test
 //		public void testGet() {

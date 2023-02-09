@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.MapVO;
 import org.zerock.domain.Type;
 
@@ -111,14 +112,26 @@ public class MapMapperTests {
 //		
 //	}
 //	
+//	
+//	@Test
+//	public void getList(Criteria cri) {
+//		
+//		List<MapVO> list = mapper.getList();
+//		list.forEach(map -> log.info(map));
+//		
+//		
+//	}
 	
 	@Test
-	public void getList() {
+	public void testPaging() {
 		
-		List<MapVO> list = mapper.getList();
-		list.forEach(map -> log.info(map));
-		
-		
+       Criteria cri = new Criteria();
+       cri.setPageNum(2);
+       cri.setAmount(10);
+       List<MapVO> list = mapper.getListWithPaging(cri);
+       list.forEach(map -> log.info(map.getMno()));
+       
+       
 	}
 
 	
