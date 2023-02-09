@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.MapCriteria;
 import org.zerock.domain.MapVO;
 import org.zerock.domain.Type;
 
@@ -49,7 +50,7 @@ public class MapServiceTests {
 		@Test
 		public void testGetList() {
 			
-			Criteria cri = new Criteria();
+			MapCriteria cri = new MapCriteria();
 			service.getList(cri).forEach(map -> log.info(map));
 			
 		}

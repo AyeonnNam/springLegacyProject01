@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.MapCriteria;
 import org.zerock.domain.MapVO;
 import org.zerock.domain.PageDTO;
 import org.zerock.domain.ReplyPageDTO;
@@ -50,7 +51,7 @@ public class MapController {
 	
 	
 	@GetMapping("/showMap")
-	public void showMap(Model model, Criteria cri) {
+	public void showMap(Model model, MapCriteria cri) {
 		
 		model.addAttribute("showMap",service.getList(cri) );
 		

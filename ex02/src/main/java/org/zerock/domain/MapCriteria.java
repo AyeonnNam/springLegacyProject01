@@ -9,22 +9,22 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Criteria {
+public class MapCriteria {
 
 	private int pageNum;
 	private int amount;
 	private String type;
 	private String keyword;
 
-	public Criteria() {
-		this(1, 10);
+	public MapCriteria() {
+		this(1, 9);
 	}
 	
 	
 	
 	
 
-	public Criteria(int pageNum, int amount) {
+	public MapCriteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
 	}

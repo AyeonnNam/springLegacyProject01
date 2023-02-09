@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.MapCriteria;
 import org.zerock.domain.MapVO;
 import org.zerock.mapper.MapMapper;
 
@@ -43,7 +44,7 @@ public class MapServiceImpl implements MapService {
 	}
 
 	@Override
-	public List<MapVO> getList(Criteria cri) {
+	public List<MapVO> getList(MapCriteria cri) {
 		log.info("getList.................." );
 		return mapper.getListWithPaging(cri);
 	}
