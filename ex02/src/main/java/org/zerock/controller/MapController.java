@@ -2,6 +2,7 @@ package org.zerock.controller;
 
 import java.util.List;
 
+import org.apache.ibatis.javassist.expr.NewArray;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -54,6 +55,7 @@ public class MapController {
 	public void showMap(Model model, MapCriteria cri) {
 		
 		model.addAttribute("showMap",service.getList(cri) );
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
 	}
 
