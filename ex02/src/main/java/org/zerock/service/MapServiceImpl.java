@@ -19,9 +19,10 @@ public class MapServiceImpl implements MapService {
 	private MapMapper mapper;
 
 	@Override
-	public void register(MapVO map) {
+	public int register(MapVO map) {
 		log.info("register.................." + map);
-		mapper.insertSelectKey(map);
+		return mapper.insert(map);
+		
 	}
 
 	@Override

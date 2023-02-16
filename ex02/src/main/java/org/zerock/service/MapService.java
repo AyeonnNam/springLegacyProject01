@@ -12,7 +12,7 @@ import org.zerock.domain.MapVO;
 public interface MapService {
 
 	
-	public void register(MapVO map);
+	public int register(MapVO map);
 
 	public MapVO get(Long mno);
 

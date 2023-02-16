@@ -86,28 +86,62 @@
 									});
 									
 									
+									$("#regBtn").on("click", function(e){
+										
+										
+										
+										
+									});
+									
+									
 								});
 								
 								
 								</script>
 
-<!-- <div class="col-lg-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">Emphasis Classes</div>
-		<div class="panel-body">
-			<p class="text-muted">This is an example of muted text.</p>
-			<p class="text-primary">This is an example of primary text.</p>
-			<p class="text-success">This is an example of success text.</p>
-			<p class="text-info">This is an example of info text.</p>
-			<p class="text-warning">This is an example of warning text.</p>
-			<p class="text-danger">This is an example of danger text.</p>
-		</div>
-		/.panel-body
-	</div>
-	/.panel
-</div>
-/.col-lg-4
- -->
+<!--  댓글 달기 모달  -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">게시글 등록</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label>Name</label> <input class="form-control" name='name'
+						value='name !!!!'>
+				</div>
+				<div class="form-group">
+					<label>type</label> <input class="form-control" name='type'
+						value='type'>
+				</div>
+				<div class="form-group">
+					<label>regDate</label> <input class="form-control"
+						name='regDate' value=''>
+				</div>
 
+			</div>
+
+			<div class="modal-footer">
+				<button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
+				<button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
+				<button id='modalRegisterBtn' type="button" class="btn btn-default"
+					data-dismiss="modal">Register</button>
+
+				<button id='modalCloseBtn' type="button" class="btn btn-default"
+					data-dismiss="modal">Close</button>
+
+
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <%@include file="../includes/footer.jsp"%>

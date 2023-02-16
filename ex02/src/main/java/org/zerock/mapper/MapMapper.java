@@ -7,7 +7,7 @@ import org.zerock.domain.MapVO;
 
 public interface MapMapper {
 	
-	public void insert(MapVO map);
+	public int insert(MapVO map);
 
 	public void insertSelectKey(MapVO map);
 	
