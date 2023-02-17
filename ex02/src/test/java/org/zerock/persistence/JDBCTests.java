@@ -25,7 +25,7 @@ public class JDBCTests {
 		
 		try(Connection con = 
 				DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/opentutorials?serverTimezone=Asia/Seoul",
+						"jdbc:mysql://localhost:3306/aop_practice?serverTimezone=Asia/Seoul",
 						"root",
 						"mysql")){
 			System.out.println(con);
